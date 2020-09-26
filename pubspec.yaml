@@ -28,6 +28,7 @@ dependencies:
   flutter_tts: ^1.2.7
   hexcolor: ^1.0.4
   splashscreen:
+  image_picker: ^0.6.7+11
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -60,6 +61,8 @@ flutter:
   assets:
     - assets/ssd_mobilenet.tflite
     - assets/ssd_mobilenet.txt
+    - assets/cash_model_unquant.tflite
+    - assets/cash_labels.txt
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

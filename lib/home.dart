@@ -1,9 +1,14 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
 import 'package:flutter_tts/flutter_tts.dart';
+import 'package:helping_hands/currency_detection/currency.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:tflite/tflite.dart';
 import 'dart:math' as math;
+
 
 import 'live_labelling/bndbox.dart';
 import 'live_labelling/camera.dart';
@@ -22,7 +27,20 @@ class _HomePageState extends State<HomePage> {
   int _imageHeight = 0;
   int _imageWidth = 0;
   String _model = "SSD MobileNet";
+  File _currImage;
   final FlutterTts flutterTts = FlutterTts();
+  Future getCurrImage() async{
+    final currImage = await ImagePicker.pickImage(source: ImageSource.camera);
+    setState(() {
+      _currImage = currImage;
+    });
+    if (currImage != null) {
+      Navigator.of(context).push(MaterialPageRoute(
+        builder: (context)=> CurrPage(currImage: currImage)
+      ));
+    }
+
+  }
 
   @override
   void initState() {
@@ -77,7 +95,11 @@ class _HomePageState extends State<HomePage> {
                           splashColor: Hexcolor('#F9E2AE'),
                           onPressed: ()=> _speak(),
                           child: Text("Feature: Image Captioning",
-                              style: TextStyle(fontSize: 27.0, color: Colors.white, fontWeight: FontWeight.bold))))),
+                              style: TextStyle(fontSize: 27.0, color: Colors.white, fontWeight: FontWeight.bold)
+                          )
+                      )
+                  )
+              ),
               color: Hexcolor('6d597a')
           ),
           Container(
@@ -86,9 +108,13 @@ class _HomePageState extends State<HomePage> {
                       child: FlatButton(
                           highlightColor: Hexcolor('#F9E2E'),
                           splashColor: Hexcolor('#FBC78D'),
-                          onPressed: () => _speak(),
+                          onPressed: () => getCurrImage(),
                           child: Text("Feature: Currency Identifier",
-                              style: TextStyle(fontSize: 27.0, color: Colors.white, fontWeight: FontWeight.bold))))),
+                              style: TextStyle(fontSize: 27.0, color: Colors.white, fontWeight: FontWeight.bold)
+                          )
+                      )
+                  )
+              ),
               color: Hexcolor('b56576')
           ),
           Container(
@@ -99,7 +125,11 @@ class _HomePageState extends State<HomePage> {
                           splashColor: Colors.yellow[500],
                           onPressed: () => _speak(),
                           child: Text("Feature: Fruits & Vegetable Identifier",
-                              style: TextStyle(fontSize: 27.0, color: Colors.white, fontWeight: FontWeight.bold))))),
+                              style: TextStyle(fontSize: 27.0, color: Colors.white, fontWeight: FontWeight.bold)
+                          )
+                      )
+                  )
+              ),
               color: Hexcolor('e56b6f')
           ),
         ],
