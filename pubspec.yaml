@@ -29,6 +29,8 @@ dependencies:
   hexcolor: ^1.0.4
   splashscreen:
   image_picker: ^0.6.7+11
+  flutter_icons: ^1.1.0
+  simple_ocr_plugin: ^0.1.1
 
 
   # The following adds the Cupertino Icons font to your application.
