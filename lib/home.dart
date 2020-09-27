@@ -9,7 +9,6 @@ import 'package:image_picker/image_picker.dart';
 import 'package:tflite/tflite.dart';
 import 'dart:math' as math;
 
-
 import 'live_labelling/bndbox.dart';
 import 'live_labelling/camera.dart';
 
@@ -29,17 +28,16 @@ class _HomePageState extends State<HomePage> {
   String _model = "SSD MobileNet";
   File _currImage;
   final FlutterTts flutterTts = FlutterTts();
-  Future getCurrImage() async{
+
+  Future getCurrImage() async {
     final currImage = await ImagePicker.pickImage(source: ImageSource.camera);
     setState(() {
       _currImage = currImage;
     });
     if (currImage != null) {
       Navigator.of(context).push(MaterialPageRoute(
-        builder: (context)=> CurrPage(currImage: currImage)
-      ));
+          builder: (context) => CurrPage(currImage: currImage)));
     }
-
   }
 
   @override
@@ -93,15 +91,13 @@ class _HomePageState extends State<HomePage> {
                       child: FlatButton(
                           highlightColor: Hexcolor('#A8DEE0'),
                           splashColor: Hexcolor('#F9E2AE'),
-                          onPressed: ()=> _speak(),
+                          onPressed: () => _speak(),
                           child: Text("Feature: Image Captioning",
-                              style: TextStyle(fontSize: 27.0, color: Colors.white, fontWeight: FontWeight.bold)
-                          )
-                      )
-                  )
-              ),
-              color: Hexcolor('6d597a')
-          ),
+                              style: TextStyle(
+                                  fontSize: 27.0,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold))))),
+              color: Hexcolor('6d597a')),
           Container(
               child: Center(
                   child: SizedBox.expand(
@@ -110,13 +106,11 @@ class _HomePageState extends State<HomePage> {
                           splashColor: Hexcolor('#FBC78D'),
                           onPressed: () => getCurrImage(),
                           child: Text("Feature: Currency Identifier",
-                              style: TextStyle(fontSize: 27.0, color: Colors.white, fontWeight: FontWeight.bold)
-                          )
-                      )
-                  )
-              ),
-              color: Hexcolor('b56576')
-          ),
+                              style: TextStyle(
+                                  fontSize: 27.0,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold))))),
+              color: Hexcolor('b56576')),
           Container(
               child: Center(
                   child: SizedBox.expand(
@@ -125,13 +119,11 @@ class _HomePageState extends State<HomePage> {
                           splashColor: Colors.yellow[500],
                           onPressed: () => _speak(),
                           child: Text("Feature: Fruits & Vegetable Identifier",
-                              style: TextStyle(fontSize: 27.0, color: Colors.white, fontWeight: FontWeight.bold)
-                          )
-                      )
-                  )
-              ),
-              color: Hexcolor('e56b6f')
-          ),
+                              style: TextStyle(
+                                  fontSize: 27.0,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold))))),
+              color: Hexcolor('e56b6f')),
         ],
         scrollDirection: Axis.horizontal,
         pageSnapping: true,
@@ -140,7 +132,8 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Future _speak() async{
+  Future _speak() async {
     await flutterTts.speak("something");
   }
 }
+//
