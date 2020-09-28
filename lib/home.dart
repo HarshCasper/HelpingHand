@@ -5,6 +5,7 @@ import 'package:camera/camera.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:helping_hands/currency_detection/currency.dart';
+import 'package:helping_hands/image_captioning/image_captioning.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:simple_ocr_plugin/simple_ocr_plugin.dart';
@@ -28,6 +29,7 @@ class _HomePageState extends State<HomePage> {
   int _imageHeight = 0;
   int _imageWidth = 0;
   String _model = "SSD MobileNet";
+  File _capImage;
   File _currImage;
   final FlutterTts flutterTts = FlutterTts();
 
@@ -39,6 +41,16 @@ class _HomePageState extends State<HomePage> {
     if (currImage != null) {
       Navigator.of(context).push(MaterialPageRoute(
           builder: (context) => CurrPage(currImage: currImage)));
+    }
+  }
+
+  Future getCapImage() async {
+    final capImage = await ImagePicker.pickImage(source: ImageSource.camera);
+    setState(() {
+      _capImage = capImage;
+    });
+    if (capImage != null) {
+      imgCap.uploadImg(context, _capImage);
     }
   }
 
@@ -93,7 +105,7 @@ class _HomePageState extends State<HomePage> {
                       child: FlatButton(
                           highlightColor: Hexcolor('#A8DEE0'),
                           splashColor: Hexcolor('#F9E2AE'),
-                          onPressed: () => _speak(),
+                          onPressed: () => getCapImage(),
                           child: Text("Feature: Image Captioning",
                               style: TextStyle(
                                   fontSize: 27.0,
