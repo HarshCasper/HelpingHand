@@ -31,6 +31,9 @@ dependencies:
   image_picker: ^0.6.7+11
   flutter_icons: ^1.1.0
   simple_ocr_plugin: ^0.1.1
+  http:
+  imgur: ^1.1.1
+  path: ^1.7.0
 
 
   # The following adds the Cupertino Icons font to your application.
