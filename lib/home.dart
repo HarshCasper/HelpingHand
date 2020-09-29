@@ -268,6 +268,15 @@ class _HomePageState extends State<HomePage> {
                         elevation: 5.0,
                       ),
                       new RaisedButton(
+                        onPressed: () {
+                          _speakOCR(text);
+                        },
+                        padding: const EdgeInsets.all(10.0),
+                        child: const Text('Replay'),
+                        color: Color(0xFFE08284),
+                        elevation: 5.0,
+                      ),
+                      new RaisedButton(
                         onPressed: _stopTts,
                         padding: const EdgeInsets.all(10.0),
                         child: const Text('Stop'),
