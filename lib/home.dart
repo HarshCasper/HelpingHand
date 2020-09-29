@@ -8,6 +8,7 @@ import 'package:helping_hands/currency_detection/currency.dart';
 import 'package:helping_hands/image_captioning/image_captioning.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:simple_ocr_plugin/simple_ocr_plugin.dart';
 import 'package:tflite/tflite.dart';
 import 'dart:math' as math;
@@ -32,6 +33,9 @@ class _HomePageState extends State<HomePage> {
   File _capImage;
   File _currImage;
   final FlutterTts flutterTts = FlutterTts();
+  TextEditingController _controller1 = new TextEditingController();
+  TextEditingController _controller2 = new TextEditingController();
+  TextEditingController _controller3 = new TextEditingController();
 
   PageController _controller = PageController(
     initialPage: 0,
@@ -177,23 +181,34 @@ class _HomePageState extends State<HomePage> {
               content: new SingleChildScrollView(
                   child: new ListBody(children: <Widget>[
                 TextFormField(
+                  keyboardType: TextInputType.number,
+                  controller: _controller1,
                   decoration: InputDecoration(
                     labelText: 'Enter phone number 1:',
                   ),
                 ),
                 TextFormField(
+                  keyboardType: TextInputType.number,
+                  controller: _controller2,
                   decoration: InputDecoration(
                     labelText: 'Enter phone number 2:',
                   ),
                 ),
                 TextFormField(
+                  keyboardType: TextInputType.number,
+                  controller: _controller3,
                   decoration: InputDecoration(
                     labelText: 'Enter phone number 3:',
                   ),
                 ),
                 new SizedBox(height: 10),
                 new RaisedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    setNumbers(
+                        int.parse(_controller1.text),
+                        int.parse(_controller2.text),
+                        int.parse(_controller3.text));
+                  },
                   color: Hexcolor('eaac8b'),
                   child: Text(
                     "Save Information",
@@ -206,6 +221,16 @@ class _HomePageState extends State<HomePage> {
                 )
               ])));
         });
+  }
+
+  setNumbers(int n1, int n2, int n3) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    print(n1);
+    print(n2);
+    print(n3);
+    await prefs.setInt('num1', n1);
+    await prefs.setInt('num2', n2);
+    await prefs.setInt('num3', n3);
   }
 
   Future<void> _optionsDialogBox() {
