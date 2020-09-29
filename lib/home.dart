@@ -255,33 +255,63 @@ class _HomePageState extends State<HomePage> {
                 title: Text('Text Detected'),
                 content: SingleChildScrollView(
                   child: Column(
-                    children: [
+                    children: <Widget>[
+                      new Container(
+                        width: 300.0,
+                        height: 150,
+                        child: RaisedButton(
+                          onPressed: _stopTts,
+                          padding: const EdgeInsets.all(10.0),
+                          child: const Text('Stop',
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold)),
+                          color: Hexcolor('b56576'),
+                          elevation: 5.0,
+                          shape: new RoundedRectangleBorder(
+                              borderRadius: new BorderRadius.circular(16.0)),
+                        ),
+                      ),
+                      new Container(height: 10),
+                      new Container(
+                        width: 300.0,
+                        height: 150,
+                        child: RaisedButton(
+                          onPressed: () {
+                            _speakOCR(text);
+                          },
+                          padding: const EdgeInsets.all(10.0),
+                          child: const Text('Replay',
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold)),
+                          color: Hexcolor('b56576'),
+                          elevation: 5.0,
+                          shape: new RoundedRectangleBorder(
+                              borderRadius: new BorderRadius.circular(16.0)),
+                        ),
+                      ),
+                      new Container(height: 10),
+                      new Container(
+                        width: 300.0,
+                        height: 150,
+                        child: RaisedButton(
+                          onPressed: _pauseTts,
+                          padding: const EdgeInsets.all(10.0),
+                          child: const Text('Pause',
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold)),
+                          color: Hexcolor('b56576'),
+                          elevation: 5.0,
+                          shape: new RoundedRectangleBorder(
+                              borderRadius: new BorderRadius.circular(16.0)),
+                        ),
+                      ),
+                      new Container(height: 10),
                       new Image.memory(pngByteData),
                       SizedBox(width: 20),
                       new Text("$text"),
-                      new RaisedButton(
-                        onPressed: _pauseTts,
-                        padding: const EdgeInsets.all(10.0),
-                        child: const Text('Pause'),
-                        color: Color(0xFFE08284),
-                        elevation: 5.0,
-                      ),
-                      new RaisedButton(
-                        onPressed: () {
-                          _speakOCR(text);
-                        },
-                        padding: const EdgeInsets.all(10.0),
-                        child: const Text('Replay'),
-                        color: Color(0xFFE08284),
-                        elevation: 5.0,
-                      ),
-                      new RaisedButton(
-                        onPressed: _stopTts,
-                        padding: const EdgeInsets.all(10.0),
-                        child: const Text('Stop'),
-                        color: Color(0xFFE08284),
-                        elevation: 5.0,
-                      )
                     ],
                   ),
                 ),

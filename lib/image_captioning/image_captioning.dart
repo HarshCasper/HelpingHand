@@ -5,6 +5,7 @@ import 'dart:convert';
 import 'package:imgur/imgur.dart' as imgur;
 import 'package:path/path.dart';
 import 'package:flutter_tts/flutter_tts.dart';
+import 'package:hexcolor/hexcolor.dart';
 
 class imgCap {
   File capImage;
@@ -60,26 +61,55 @@ class imgCap {
                 title: Text('Image Caption'),
                 content: SingleChildScrollView(
                   child: Column(
-                    children: [
+                    children: <Widget>[
+                      new Container(
+                        width: 300.0,
+                        height: 250,
+                        child: RaisedButton(
+                          onPressed: () {
+                            _speak(text);
+                          },
+                          padding: const EdgeInsets.all(10.0),
+                          child: const Text(
+                            'Replay',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          color: Hexcolor('6d597a'),
+                          elevation: 5.0,
+                          shape: new RoundedRectangleBorder(
+                              borderRadius: new BorderRadius.circular(16.0)),
+                        ),
+                      ),
+                      new Container(
+                        width: 300.0,
+                        height: 20,
+                      ),
+                      new Container(
+                          width: 300.0,
+                          height: 250,
+                          child: RaisedButton(
+                            onPressed: _stopTts,
+                            padding: const EdgeInsets.all(10.0),
+                            child: const Text(
+                              'Stop',
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                            color: Hexcolor('6d597a'),
+                            elevation: 5.0,
+                            shape: new RoundedRectangleBorder(
+                                borderRadius: new BorderRadius.circular(16.0)),
+                          )),
+                      new Container(
+                        width: 300.0,
+                        height: 20,
+                      ),
                       new Image.file(picture),
                       SizedBox(width: 20),
                       new Text("$text"),
-                      new RaisedButton(
-                        onPressed: () {
-                          _speak(text);
-                        },
-                        padding: const EdgeInsets.all(10.0),
-                        child: const Text('Replay'),
-                        color: Color(0xFFE08284),
-                        elevation: 5.0,
-                      ),
-                      new RaisedButton(
-                        onPressed: _stopTts,
-                        padding: const EdgeInsets.all(10.0),
-                        child: const Text('Stop'),
-                        color: Color(0xFFE08284),
-                        elevation: 5.0,
-                      )
                     ],
                   ),
                 ),

@@ -67,15 +67,32 @@ class CurrPage {
                 title: Text('Currency Identification'),
                 content: SingleChildScrollView(
                   child: Column(
-                    children: [
-                      new RaisedButton(
-                        onPressed: () {
-                          _speak(text);
-                        },
-                        padding: const EdgeInsets.all(10.0),
-                        child: const Text('Replay'),
-                        color: Color(0xFFE08284),
-                        elevation: 5.0,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      new Container(
+                        width: 300.0,
+                        height: 420.0,
+                        //decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(16.0))),
+                        child: RaisedButton(
+                          onPressed: () {
+                            _speak(text);
+                          },
+                          padding: const EdgeInsets.all(10.0),
+                          child: const Text(
+                            'Replay',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          color: Hexcolor('e56b6f'),
+                          elevation: 5.0,
+                          shape: new RoundedRectangleBorder(
+                              borderRadius: new BorderRadius.circular(16.0)),
+                        ),
+                      ),
+                      new Container(
+                        width: 300.0,
+                        height: 20,
                       ),
                       new Image.file(picture),
                       SizedBox(width: 20),
