@@ -43,8 +43,7 @@ class _HomePageState extends State<HomePage> {
       _currImage = currImage;
     });
     if (currImage != null) {
-      Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => CurrPage(currImage: currImage)));
+      CurrPage.currencyDetect(context, currImage);
     }
   }
 
@@ -112,7 +111,7 @@ class _HomePageState extends State<HomePage> {
                           highlightColor: Hexcolor('#A8DEE0'),
                           splashColor: Hexcolor('#F9E2AE'),
                           onPressed: () => getCapImage(),
-                          child: Text("Feature: Image Captioning",
+                          child: Text("Image Captioning",
                               style: TextStyle(
                                   fontSize: 27.0,
                                   color: Colors.white,
@@ -138,7 +137,7 @@ class _HomePageState extends State<HomePage> {
                           highlightColor: Hexcolor('#F9E2E'),
                           splashColor: Hexcolor('#FBC78D'),
                           onPressed: () => getCurrImage(),
-                          child: Text("Feature: Currency Identifier",
+                          child: Text("Currency Identifier",
                               style: TextStyle(
                                   fontSize: 27.0,
                                   color: Colors.white,
@@ -151,7 +150,7 @@ class _HomePageState extends State<HomePage> {
                           highlightColor: Colors.yellow[900],
                           splashColor: Colors.yellow[500],
                           onPressed: () => _speak(),
-                          child: Text("Feature: Fruits & Vegetable Identifier",
+                          child: Text("Fruits & Vegetable Identifier",
                               style: TextStyle(
                                   fontSize: 27.0,
                                   color: Colors.white,
@@ -315,7 +314,7 @@ class _HomePageState extends State<HomePage> {
     } else if (a == 1) {
       await flutterTts.speak("Image Captioning");
     } else if (a == 2) {
-      await flutterTts.speak("Text Extraction");
+      await flutterTts.speak("Text Extraction from images");
     } else if (a == 3) {
       await flutterTts.speak("Currency Identifier");
     }
