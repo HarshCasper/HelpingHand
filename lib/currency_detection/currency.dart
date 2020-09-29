@@ -77,13 +77,6 @@ class CurrPage {
                         color: Color(0xFFE08284),
                         elevation: 5.0,
                       ),
-                      new RaisedButton(
-                        onPressed: _stopTts,
-                        padding: const EdgeInsets.all(10.0),
-                        child: const Text('Stop'),
-                        color: Color(0xFFE08284),
-                        elevation: 5.0,
-                      ),
                       new Image.file(picture),
                       SizedBox(width: 20),
                       new Text("$text"),
