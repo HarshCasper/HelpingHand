@@ -149,8 +149,8 @@ class _HomePageState extends State<HomePage> {
                       child: FlatButton(
                           highlightColor: Colors.yellow[900],
                           splashColor: Colors.yellow[500],
-                          onPressed: () => _speak(),
-                          child: Text("Fruits & Vegetable Identifier",
+                          onPressed: () => _sosDialogBox(),
+                          child: Text("SOS Settings",
                               style: TextStyle(
                                   fontSize: 27.0,
                                   color: Colors.white,
@@ -166,6 +166,46 @@ class _HomePageState extends State<HomePage> {
 
   Future _speak() async {
     await flutterTts.speak("something");
+  }
+
+  Future<void> _sosDialogBox() {
+    return showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+              title: Text("Enter phone numbers you would like to contact"),
+              content: new SingleChildScrollView(
+                  child: new ListBody(children: <Widget>[
+                TextFormField(
+                  decoration: InputDecoration(
+                    labelText: 'Enter phone number 1:',
+                  ),
+                ),
+                TextFormField(
+                  decoration: InputDecoration(
+                    labelText: 'Enter phone number 2:',
+                  ),
+                ),
+                TextFormField(
+                  decoration: InputDecoration(
+                    labelText: 'Enter phone number 3:',
+                  ),
+                ),
+                new SizedBox(height: 10),
+                new RaisedButton(
+                  onPressed: () {},
+                  color: Hexcolor('eaac8b'),
+                  child: Text(
+                    "Save Information",
+                    style: TextStyle(
+                        color: Colors.white, fontWeight: FontWeight.bold),
+                  ),
+                  elevation: 5.0,
+                  shape: new RoundedRectangleBorder(
+                      borderRadius: new BorderRadius.circular(16.0)),
+                )
+              ])));
+        });
   }
 
   Future<void> _optionsDialogBox() {
