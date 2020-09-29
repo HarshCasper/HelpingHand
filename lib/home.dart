@@ -33,6 +33,10 @@ class _HomePageState extends State<HomePage> {
   File _currImage;
   final FlutterTts flutterTts = FlutterTts();
 
+  PageController _controller = PageController(
+    initialPage: 0,
+  );
+
   Future getCurrImage() async {
     final currImage = await ImagePicker.pickImage(source: ImageSource.camera);
     setState(() {
@@ -80,6 +84,8 @@ class _HomePageState extends State<HomePage> {
     Size screen = MediaQuery.of(context).size;
     return Scaffold(
       body: PageView(
+        controller: _controller,
+        onPageChanged: _speakPage,
         children: <Widget>[
           Container(
             child: Stack(
@@ -178,7 +184,7 @@ class _HomePageState extends State<HomePage> {
                         WidgetSpan(
                           child: Padding(
                             padding:
-                            const EdgeInsets.symmetric(horizontal: 3.0),
+                                const EdgeInsets.symmetric(horizontal: 3.0),
                             child: Icon(FlutterIcons.photo_camera_mdi),
                           ),
                         ),
@@ -219,7 +225,8 @@ class _HomePageState extends State<HomePage> {
     var _extractText = await SimpleOcrPlugin.performOCR(picture.path);
     print(_extractText.substring(20));
     _speakOCR(_extractText.substring(20, _extractText.length - 15));
-    showOCRDialog(_extractText.substring(20, _extractText.length - 15), picture);
+    showOCRDialog(
+        _extractText.substring(20, _extractText.length - 15), picture);
   }
 
   Future<void> openGallery() async {
@@ -230,7 +237,8 @@ class _HomePageState extends State<HomePage> {
     var _extractText = await SimpleOcrPlugin.performOCR(picture.path);
     print(_extractText.substring(20));
     _speakOCR(_extractText.substring(20, _extractText.length - 15));
-    showOCRDialog(_extractText.substring(20, _extractText.length - 15), picture);
+    showOCRDialog(
+        _extractText.substring(20, _extractText.length - 15), picture);
   }
 
   Future<void> showOCRDialog(String text, PickedFile picture) async {
@@ -290,6 +298,18 @@ class _HomePageState extends State<HomePage> {
 
   Future _speakOCR(String text) async {
     await flutterTts.speak(text);
+  }
+
+  _speakPage(int a) async {
+    if (a == 0) {
+      await flutterTts.speak("Live object detection");
+    } else if (a == 1) {
+      await flutterTts.speak("Image Captioning");
+    } else if (a == 2) {
+      await flutterTts.speak("Text Extraction");
+    } else if (a == 3) {
+      await flutterTts.speak("Currency Identifier");
+    }
   }
 }
 //
