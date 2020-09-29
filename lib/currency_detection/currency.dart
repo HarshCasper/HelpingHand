@@ -6,39 +6,23 @@ import 'package:flutter_tts/flutter_tts.dart';
 
 import '../home.dart';
 
-class CurrPage extends StatefulWidget {
-  File currImage;
+class CurrPage {
+  static File currImage;
+  static BuildContext context;
 
-  CurrPage({this.currImage});
+  static List _output;
+  static final FlutterTts flutterTts = FlutterTts();
 
-  @override
-  _CurrPageState createState() => _CurrPageState(this.currImage);
-}
-
-class _CurrPageState extends State<CurrPage> {
-  File currImage;
-
-  _CurrPageState(this.currImage);
-
-  List _output;
-  final FlutterTts flutterTts = FlutterTts();
-
-  @override
-  void initState() {
-    super.initState();
+  static void currencyDetect(BuildContext buildContext, File img) {
     loadModel().then((value) {
       // setState(() {});
     });
+    context = buildContext;
+    currImage = img;
     speakCurrencyValue();
   }
 
-  @override
-  void dispose() {
-    Tflite.close();
-    super.dispose();
-  }
-
-  classifyCurrency(File image) async {
+  static classifyCurrency(File image) async {
     var output = await Tflite.runModelOnImage(
         path: image.path,
         numResults: 7,
@@ -50,40 +34,75 @@ class _CurrPageState extends State<CurrPage> {
     dynamic label = output[0]['label'];
     print(label.runtimeType);
     _speak(label);
-    setState(() {
-      _output = output;
-    });
+    _output = output;
+    showCaptionDialog(label, image);
   }
 
-  loadModel() async {
+  static loadModel() async {
     await Tflite.loadModel(
       model: 'assets/cash_model_unquant.tflite',
       labels: 'assets/cash_labels.txt',
     );
   }
 
-  speakCurrencyValue() {
+  static speakCurrencyValue() {
     classifyCurrency(currImage);
   }
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: Text('Currency Identification'),
-          backgroundColor: Hexcolor('b56576'),
-        ),
-        body: Center(
-            child: SizedBox.expand(
-                child: GestureDetector(
-          onTap: () => speakCurrencyValue(),
-          onDoubleTap: () {},
-          child: Image.file(currImage),
-        ))));
+  static Future _speak(String output) async {
+    await flutterTts.speak(output);
   }
 
-  Future _speak(String output) async {
-    await flutterTts.speak(output);
+  static Future<void> showCaptionDialog(String text, File picture) async {
+    showGeneralDialog(
+        barrierColor: Colors.black.withOpacity(0.5),
+        transitionBuilder: (context, a1, a2, widget) {
+          return Transform.scale(
+            scale: a1.value,
+            child: Opacity(
+              opacity: a1.value,
+              child: AlertDialog(
+                shape: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(16.0)),
+                title: Text('Currency Identification'),
+                content: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      new RaisedButton(
+                        onPressed: () {
+                          _speak(text);
+                        },
+                        padding: const EdgeInsets.all(10.0),
+                        child: const Text('Replay'),
+                        color: Color(0xFFE08284),
+                        elevation: 5.0,
+                      ),
+                      new RaisedButton(
+                        onPressed: _stopTts,
+                        padding: const EdgeInsets.all(10.0),
+                        child: const Text('Stop'),
+                        color: Color(0xFFE08284),
+                        elevation: 5.0,
+                      ),
+                      new Image.file(picture),
+                      SizedBox(width: 20),
+                      new Text("$text"),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          );
+        },
+        transitionDuration: Duration(milliseconds: 200),
+        barrierDismissible: true,
+        barrierLabel: '',
+        context: context,
+        pageBuilder: (context, animation1, animation2) {});
+  }
+
+  static void _stopTts() {
+    flutterTts.stop();
   }
 }
 //

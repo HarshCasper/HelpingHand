@@ -43,8 +43,7 @@ class _HomePageState extends State<HomePage> {
       _currImage = currImage;
     });
     if (currImage != null) {
-      Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => CurrPage(currImage: currImage)));
+      CurrPage.currencyDetect(context, currImage);
     }
   }
 
