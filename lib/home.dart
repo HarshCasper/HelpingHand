@@ -1,16 +1,20 @@
+import 'dart:async';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:flutter_tts/flutter_tts.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:helping_hands/currency_detection/currency.dart';
 import 'package:helping_hands/image_captioning/image_captioning.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:shake/shake.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:simple_ocr_plugin/simple_ocr_plugin.dart';
 import 'package:tflite/tflite.dart';
+import 'package:telephony/telephony.dart';
 import 'dart:math' as math;
 
 import 'live_labelling/bndbox.dart';
@@ -36,6 +40,8 @@ class _HomePageState extends State<HomePage> {
   TextEditingController _controller1 = new TextEditingController();
   TextEditingController _controller2 = new TextEditingController();
   TextEditingController _controller3 = new TextEditingController();
+  TextEditingController _controller4 = new TextEditingController();
+  final Telephony telephony = Telephony.instance;
 
   PageController _controller = PageController(
     initialPage: 0,
@@ -61,10 +67,69 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
+  var sosCount = 0;
+  var initTime;
+
   @override
-  void initState() {
+  Future<void> initState() {
     super.initState();
+    smsPermission();
     loadModel();
+    ShakeDetector detector = ShakeDetector.waitForStart(onPhoneShake: () {
+      if (sosCount == 0) {
+        initTime = DateTime.now();
+        ++sosCount;
+      } else {
+        if (DateTime.now().difference(initTime).inSeconds < 4) {
+          ++sosCount;
+          if (sosCount == 6) {
+            sendSms();
+            sosCount = 0;
+          }
+          print(sosCount);
+        } else {
+          sosCount = 0;
+          print(sosCount);
+        }
+      }
+    });
+
+    detector.startListening();
+  }
+
+  void sendSms() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String n1 = prefs.getString('n1');
+    String n2 = prefs.getString('n2');
+    String n3 = prefs.getString('n3');
+    String name = prefs.getString('name');
+    Position position =
+        await getCurrentPosition(desiredAccuracy: LocationAccuracy.best);
+    if (position == null) {
+      position = await getLastKnownPosition();
+    }
+    String lat = (position.latitude).toString();
+    String long = (position.longitude).toString();
+    String alt = (position.altitude).toString();
+    String speed = (position.speed).toString();
+    String timestamp = (position.timestamp).toIso8601String();
+    print(n2);
+    telephony.sendSms(
+        to: n1,
+        message:
+            "$name needs you help, last seen at: Latitude: $lat, Longitude: $long, Altitude: $alt, Speed: $speed, Time: $timestamp");
+    telephony.sendSms(
+        to: n2,
+        message:
+            "$name needs you help, last seen at:  Latitude: $lat, Longitude: $long, Altitude: $alt, Speed: $speed, Time: $timestamp");
+    telephony.sendSms(
+        to: n3,
+        message:
+            "$name needs you help, last seen at:  Latitude: $lat, Longitude: $long, Altitude: $alt, Speed: $speed, Time: $timestamp");
+  }
+
+  void smsPermission() async {
+    //bool permissionsGranted = await telephony.requestPhoneAndSmsPermissions;
   }
 
   loadModel() async {
@@ -181,6 +246,12 @@ class _HomePageState extends State<HomePage> {
               content: new SingleChildScrollView(
                   child: new ListBody(children: <Widget>[
                 TextFormField(
+                  controller: _controller4,
+                  decoration: InputDecoration(
+                    labelText: 'Enter your name:',
+                  ),
+                ),
+                TextFormField(
                   keyboardType: TextInputType.number,
                   controller: _controller1,
                   decoration: InputDecoration(
@@ -204,10 +275,8 @@ class _HomePageState extends State<HomePage> {
                 new SizedBox(height: 10),
                 new RaisedButton(
                   onPressed: () {
-                    setNumbers(
-                        int.parse(_controller1.text),
-                        int.parse(_controller2.text),
-                        int.parse(_controller3.text));
+                    setNumbers((_controller1.text), (_controller2.text),
+                        (_controller3.text), _controller4.text);
                   },
                   color: Hexcolor('eaac8b'),
                   child: Text(
@@ -223,14 +292,15 @@ class _HomePageState extends State<HomePage> {
         });
   }
 
-  setNumbers(int n1, int n2, int n3) async {
+  setNumbers(String n1, String n2, String n3, String n) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     print(n1);
     print(n2);
     print(n3);
-    await prefs.setInt('num1', n1);
-    await prefs.setInt('num2', n2);
-    await prefs.setInt('num3', n3);
+    await prefs.setString('n1', n1);
+    await prefs.setString('n2', n2);
+    await prefs.setString('n3', n3);
+    await prefs.setString('name', n);
   }
 
   Future<void> _optionsDialogBox() {
