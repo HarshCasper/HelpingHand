@@ -1,16 +1,26 @@
 # HelpingHand
 
+<p align="center">
+  <a href="https://github.com/HarshCasper/YouTube">
+    <img src="https://media.discordapp.net/attachments/757614604070289558/760148080963223572/icon.png" alt="Logo" width="140" height="150">
+  </a>
+  
+  
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
+
 [![forthebadge](https://forthebadge.com/images/badges/built-by-developers.svg)](https://forthebadge.com)
 [![forthebadge](https://forthebadge.com/images/badges/built-for-android.svg)](https://forthebadge.com)
 [![forthebadge](https://forthebadge.com/images/badges/powered-by-responsibility.svg)](https://forthebadge.com)
 [![forthebadge](https://forthebadge.com/images/badges/open-source.svg)](https://forthebadge.com)
 [![forthebadge](https://forthebadge.com/images/badges/made-with-reason.svg)](https://forthebadge.com)
 
-## 📌 Introduction
+## Introduction 📌
 
 Even with the rise of tools and technologies, mankind hasn’t implemented applications that could help visually impaired people. With the rise of Data Modelling techniques that can be used to infuse “intelligence” even in dumb computers and the ease of accessibility, this “intelligence” can be extended to our Smartphone to help the visually impaired people cope up with their surroundings and get a helping hand in their daily activities. Our Application aims to bridge the gap between them and the visual world by leveraging the power of Deep Learning which can be made accessible even on low-ended devices with a lucid User-Interface that would exactly allow them to better understand the world around.
 
-## 🏁 Technology Stack
+## Technology Stack 🏁
 
 * [Flutter](https://flutter.dev/)
 * [Tensorflow](https://www.tensorflow.org/)
@@ -32,12 +42,27 @@ For this project, we will be collaborating on various domains like:
 
 This would be an enriching experience for all of us that are part of this team.
 
-## 💥 Contributors
-
-- [Yash Khare](https://github.com/yashk2000)
-- [Shambhavi Aggarwal](https://github.com/agg-shambhavi)
-- [Harsh Mishra](https://github.com/HarshCasper)
-
-## 📜 LICENSE
+## LICENSE 📜
 
 [MIT](https://github.com/HarshCasper/HelpingHand/blob/master/LICENSE)
+
+## Contributors ✨
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="https://www.linkedin.com/in/shambhavi-aggarwal-437804179/"><img src="https://avatars0.githubusercontent.com/u/48705124?v=4" width="100px;" alt=""/><br /><sub><b>Shambhavi Aggarwal</b></sub></a><br /><a href="https://github.com/HarshCasper/HelpingHand/commits?author=agg-shambhavi" title="Code">💻</a> <a href="#ideas-agg-shambhavi" title="Ideas, Planning, & Feedback">🤔</a></td>
+    <td align="center"><a href="https://yashk2000.github.io/"><img src="https://avatars3.githubusercontent.com/u/41234408?v=4" width="100px;" alt=""/><br /><sub><b>Yash Khare</b></sub></a><br /><a href="https://github.com/HarshCasper/HelpingHand/commits?author=yashk2000" title="Code">💻</a> <a href="https://github.com/HarshCasper/HelpingHand/commits?author=yashk2000" title="Documentation">📖</a> <a href="#ideas-yashk2000" title="Ideas, Planning, & Feedback">🤔</a></td>
+    <td align="center"><a href="http://harshbardhanmishra.me"><img src="https://avatars1.githubusercontent.com/u/47351025?v=4" width="100px;" alt=""/><br /><sub><b>Harsh Bardhan Mishra</b></sub></a><br /><a href="https://github.com/HarshCasper/HelpingHand/commits?author=harshcasper" title="Documentation">📖</a> <a href="https://github.com/HarshCasper/HelpingHand/commits?author=harshcasper" title="Code">💻</a></td>
+  </tr>
+</table>
+
+<!-- markdownlint-enable -->
+<!-- prettier-ignore-end -->
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!

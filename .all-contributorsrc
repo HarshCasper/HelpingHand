@@ -1,0 +1,46 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "agg-shambhavi",
+      "name": "Shambhavi Aggarwal",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/48705124?v=4",
+      "profile": "https://www.linkedin.com/in/shambhavi-aggarwal-437804179/",
+      "contributions": [
+        "code",
+        "ideas"
+      ]
+    },
+    {
+      "login": "yashk2000",
+      "name": "Yash Khare",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/41234408?v=4",
+      "profile": "https://yashk2000.github.io/",
+      "contributions": [
+        "code",
+        "doc",
+        "ideas"
+      ]
+    },
+    {
+      "login": "harshcasper",
+      "name": "Harsh Bardhan Mishra",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/47351025?v=4",
+      "profile": "http://harshbardhanmishra.me",
+      "contributions": [
+        "doc",
+        "code"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "HelpingHand",
+  "projectOwner": "HarshCasper",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
