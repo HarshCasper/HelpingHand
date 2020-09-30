@@ -35,7 +35,9 @@ dependencies:
   imgur: ^1.1.1
   path: ^1.7.0
   shared_preferences: ^0.5.12
-
+  shake: ^0.1.0
+  telephony: ^0.0.2
+  geolocator: ^6.0.0
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
