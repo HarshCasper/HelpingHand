@@ -28,10 +28,13 @@ Even with the rise of tools and technologies, mankind hasn’t implemented appli
 * [Flask](https://flask.palletsprojects.com/)
 * [CaptionBot](https://www.captionbot.ai/)
 
+## Instructions and Information 💥
+
+To know more about the Build Instructions for the App and to better understand the technicalities, check out our [Wiki Page](https://github.com/HarshCasper/HelpingHand/wiki).
+
 ## Application Preview 👀
 
 ![image](https://i.imgur.com/2lTwseS.jpeg)
-
 
 
 ## 🏃‍♂️ Why this Project?
