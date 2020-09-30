@@ -6,6 +6,7 @@ import 'package:imgur/imgur.dart' as imgur;
 import 'package:path/path.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:vibration/vibration.dart';
 
 class imgCap {
   File capImage;
@@ -33,6 +34,9 @@ class imgCap {
   }
 
   static _speak(String output) async {
+    if (await Vibration.hasVibrator()) {
+      Vibration.vibrate(amplitude: 500, duration: 200);
+    }
     await flutterTts.speak(output);
   }
 
@@ -124,7 +128,10 @@ class imgCap {
         pageBuilder: (context, animation1, animation2) {});
   }
 
-  static void _stopTts() {
+  static Future _stopTts() async {
+    if (await Vibration.hasVibrator()) {
+      Vibration.vibrate(amplitude: 100, duration: 200);
+    }
     flutterTts.stop();
   }
 }

@@ -3,6 +3,7 @@ import 'package:tflite/tflite.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:flutter_tts/flutter_tts.dart';
+import 'package:vibration/vibration.dart';
 
 import '../home.dart';
 
@@ -33,6 +34,9 @@ class CurrPage {
     print("This is the ${output[0]['label']}");
     dynamic label = output[0]['label'];
     print(label.runtimeType);
+    if (await Vibration.hasVibrator()) {
+      Vibration.vibrate(amplitude: 500, duration: 200);
+    }
     _speak(label);
     _output = output;
     showCaptionDialog(label, image);
@@ -50,6 +54,9 @@ class CurrPage {
   }
 
   static Future _speak(String output) async {
+    if (await Vibration.hasVibrator()) {
+      Vibration.vibrate(amplitude: 500, duration: 200);
+    }
     await flutterTts.speak(output);
   }
 
