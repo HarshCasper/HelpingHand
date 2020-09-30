@@ -25,6 +25,15 @@
         "doc",
         "ideas"
       ]
+    },
+    {
+      "login": "harshcasper",
+      "name": "Harsh Bardhan Mishra",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/47351025?v=4",
+      "profile": "http://harshbardhanmishra.me",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7,
