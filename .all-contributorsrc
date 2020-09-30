@@ -14,6 +14,15 @@
         "code",
         "ideas"
       ]
+    },
+    {
+      "login": "yashk2000",
+      "name": "Yash Khare",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/41234408?v=4",
+      "profile": "https://yashk2000.github.io/",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
