@@ -1,4 +1,11 @@
 # HelpingHand
+
+<p align="center">
+  <a href="https://github.com/HarshCasper/YouTube">
+    <img src="https://media.discordapp.net/attachments/757614604070289558/760148080963223572/icon.png" alt="Logo" width="140" height="150">
+  </a>
+  
+  
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
@@ -9,11 +16,11 @@
 [![forthebadge](https://forthebadge.com/images/badges/open-source.svg)](https://forthebadge.com)
 [![forthebadge](https://forthebadge.com/images/badges/made-with-reason.svg)](https://forthebadge.com)
 
-## 📌 Introduction
+## Introduction 📌
 
 Even with the rise of tools and technologies, mankind hasn’t implemented applications that could help visually impaired people. With the rise of Data Modelling techniques that can be used to infuse “intelligence” even in dumb computers and the ease of accessibility, this “intelligence” can be extended to our Smartphone to help the visually impaired people cope up with their surroundings and get a helping hand in their daily activities. Our Application aims to bridge the gap between them and the visual world by leveraging the power of Deep Learning which can be made accessible even on low-ended devices with a lucid User-Interface that would exactly allow them to better understand the world around.
 
-## 🏁 Technology Stack
+## Technology Stack 🏁
 
 * [Flutter](https://flutter.dev/)
 * [Tensorflow](https://www.tensorflow.org/)
@@ -35,13 +42,7 @@ For this project, we will be collaborating on various domains like:
 
 This would be an enriching experience for all of us that are part of this team.
 
-## 💥 Contributors
-
-- [Yash Khare](https://github.com/yashk2000)
-- [Shambhavi Aggarwal](https://github.com/agg-shambhavi)
-- [Harsh Mishra](https://github.com/HarshCasper)
-
-## 📜 LICENSE
+## LICENSE 📜
 
 [MIT](https://github.com/HarshCasper/HelpingHand/blob/master/LICENSE)
 
