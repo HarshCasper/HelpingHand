@@ -34,7 +34,7 @@ To know more about the Build Instructions for the App and to better understand t
 
 ## Application Preview 👀
 
-![image](https://i.imgur.com/2lTwseS.jpeg)
+![image](https://i.imgur.com/oPeEnTU.png)
 
 
 ## 🏃‍♂️ Why this Project?
