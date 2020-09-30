@@ -54,7 +54,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- markdownlint-disable -->
 <table>
   <tr>
-    <td align="center"><a href="https://www.linkedin.com/in/shambhavi-aggarwal-437804179/"><img src="https://avatars0.githubusercontent.com/u/48705124?v=4" width="100px;" alt=""/><br /><sub><b>Shambhavi Aggarwal</b></sub></a><br /><a href="https://github.com/HarshCasper/HelpingHand/commits?author=agg-shambhavi" title="Code">💻</a></td>
+    <td align="center"><a href="https://www.linkedin.com/in/shambhavi-aggarwal-437804179/"><img src="https://avatars0.githubusercontent.com/u/48705124?v=4" width="100px;" alt=""/><br /><sub><b>Shambhavi Aggarwal</b></sub></a><br /><a href="https://github.com/HarshCasper/HelpingHand/commits?author=agg-shambhavi" title="Code">💻</a> <a href="#ideas-agg-shambhavi" title="Ideas, Planning, & Feedback">🤔</a></td>
   </tr>
 </table>
 
