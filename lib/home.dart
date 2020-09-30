@@ -16,6 +16,7 @@ import 'package:simple_ocr_plugin/simple_ocr_plugin.dart';
 import 'package:tflite/tflite.dart';
 import 'package:telephony/telephony.dart';
 import 'dart:math' as math;
+import 'package:vibration/vibration.dart';
 
 import 'live_labelling/bndbox.dart';
 import 'live_labelling/camera.dart';
@@ -461,7 +462,10 @@ class _HomePageState extends State<HomePage> {
         pageBuilder: (context, animation1, animation2) {});
   }
 
-  void _stopTts() {
+  Future _stopTts() async {
+    if (await Vibration.hasVibrator()) {
+      Vibration.vibrate(amplitude: 100, duration: 200);
+    }
     flutterTts.stop();
   }
 
@@ -470,6 +474,9 @@ class _HomePageState extends State<HomePage> {
   }
 
   Future _speakOCR(String text) async {
+    if (await Vibration.hasVibrator()) {
+      Vibration.vibrate(amplitude: 500, duration: 200);
+    }
     await flutterTts.speak(text);
   }
 
@@ -477,11 +484,25 @@ class _HomePageState extends State<HomePage> {
     if (a == 0) {
       await flutterTts.speak("Live object detection");
     } else if (a == 1) {
+      if (await Vibration.hasVibrator()) {
+        Vibration.vibrate(amplitude: 128, duration: 1000);
+      }
       await flutterTts.speak("Image Captioning");
     } else if (a == 2) {
+      if (await Vibration.hasVibrator()) {
+        Vibration.vibrate(amplitude: 128, duration: 1400);
+      }
       await flutterTts.speak("Text Extraction from images");
     } else if (a == 3) {
+      if (await Vibration.hasVibrator()) {
+        Vibration.vibrate(amplitude: 128, duration: 1800);
+      }
       await flutterTts.speak("Currency Identifier");
+    } else if (a == 4) {
+      if (await Vibration.hasVibrator()) {
+        Vibration.vibrate(amplitude: 128, duration: 2200);
+      }
+      await flutterTts.speak("SOS Settings");
     }
   }
 }
