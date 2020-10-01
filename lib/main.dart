@@ -1,8 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
-
-import 'home.dart';
+import 'package:helping_hands/splashscreen.dart';
 
 List<CameraDescription> cameras;
 
@@ -22,7 +21,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Helping Hands',
       debugShowCheckedModeBanner: false,
-      home: HomePage(cameras),
+      home: MySplash(),
     );
   }
 }
