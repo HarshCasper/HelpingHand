@@ -17,14 +17,14 @@ class imgCap {
   static uploadImg(BuildContext context, File image) async {
     print("stage 1");
     final client =
-    imgur.Imgur(imgur.Authentication.fromToken('a05da4f1a5b17ae'));
+        imgur.Imgur(imgur.Authentication.fromToken('a05da4f1a5b17ae'));
     print("stage 2");
 
     /// Upload an image from path
     String imgLink = await client.image
         .uploadImage(
-      imagePath: image.path,
-    )
+          imagePath: image.path,
+        )
         .then((image) => image.link);
     print("stage 3");
     String caption = await extractCaption(imgLink);

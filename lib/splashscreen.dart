@@ -15,11 +15,14 @@ class _MySplashState extends State<MySplash> {
       seconds: 2,
       navigateAfterSeconds: MyApp(),
       backgroundColor: Colors.blue,
-      title: Text('Helping Hand', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30, color: Colors.white),),
+      title: Text(
+        'Helping Hand',
+        style: TextStyle(
+            fontWeight: FontWeight.bold, fontSize: 30, color: Colors.white),
+      ),
       photoSize: 150,
       loaderColor: Colors.white,
       image: Image.asset('assets/images/icon.png'),
-
     );
   }
 }

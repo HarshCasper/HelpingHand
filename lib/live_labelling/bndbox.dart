@@ -26,8 +26,8 @@ class _BndBox extends State<BndBox> {
 
   @override
   void initState() {
-    _timer = new Timer.periodic(Duration(milliseconds: 800),
-            (Timer timer) => _speak());
+    _timer = new Timer.periodic(
+        Duration(milliseconds: 800), (Timer timer) => _speak());
     super.initState();
   }
 
@@ -50,7 +50,8 @@ class _BndBox extends State<BndBox> {
         var _h = re["rect"]["h"];
         var scaleW, scaleH, x, y, w, h;
 
-        if (widget.screenH / widget.screenW > widget.previewH / widget.previewW) {
+        if (widget.screenH / widget.screenW >
+            widget.previewH / widget.previewW) {
           scaleW = widget.screenH / widget.previewH * widget.previewW;
           scaleH = widget.screenH;
           var difW = (scaleW - widget.screenW) / scaleW;
@@ -121,14 +122,12 @@ class _BndBox extends State<BndBox> {
     }
 
     return Stack(
-      children: widget.model == mobilenet
-          ? _renderStrings()
-          :  _renderBoxes(),
+      children: widget.model == mobilenet ? _renderStrings() : _renderBoxes(),
     );
   }
 
-  Future _speak() async{
-    speak != null && speak != prevString ? await flutterTts.speak(speak) : null ;
+  Future _speak() async {
+    speak != null && speak != prevString ? await flutterTts.speak(speak) : null;
     prevString = speak;
   }
 }
