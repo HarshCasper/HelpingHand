@@ -2,7 +2,7 @@
 
 <p align="center">
   <a href="https://github.com/HarshCasper/YouTube">
-    <img src="https://media.discordapp.net/attachments/757614604070289558/760148080963223572/icon.png" alt="Logo" width="140" height="150">
+    <img src="https://cdn.discordapp.com/attachments/757614604070289558/761243667000066138/Final_HH_logo.jpg" alt="Logo" >
   </a>
   
   
@@ -50,6 +50,27 @@ For this project, we will be collaborating on various domains like:
 - UI/UX Designing
 
 This would be an enriching experience for all of us that are part of this team.
+
+## How our project is more accessible for visually impaired people
+
+- Every feature, from image labeling to currency detection uses a text-to-speech feature to speak out to the user whatever is detected 🗣️
+- Each screen vibrates with different intensity on being opened helping to user navigate. The buttons also have unique vibrations for better accessibility 📳
+- We have used a minimum number of buttons, but whichever buttons are there, are of a large size. For instance, the top half of the screen will be one button, and the bottom half, another button so that a user does not need to precisely click on a particular position 🔘
+- All features, except the image captioning feature, work completely offline and do not require any internet connection📶
+- All offline features work in real-time and do not need any pre-processing time for the models to make predictions so the user can get instant updates🏎️
+
+## For contributors
+
+- To get a deeper understanding and build insturctions for the project please check out our project's [Wiki Page](https://github.com/HarshCasper/HelpingHand/wiki).
+- Before contributing do go through the [Code of Conduct](https://github.com/HarshCasper/HelpingHand/blob/master/CODE_OF_CONDUCT.md) and the [Contributors Guidelines](https://github.com/HarshCasper/HelpingHand/blob/master/CONTRIBUTING.md). 
+- If you find any bug in the application, or a feature you think would be nice to have, please open an [issue](https://github.com/HarshCasper/HelpingHand/issues).
+
+## Branch Policy
+
+- [master](https://github.com/HarshCasper/HelpingHand): This is the default branch of the repository which contains the flutter appliation. 
+- [Backend-CaptionBot](https://github.com/HarshCasper/HelpingHand/tree/Backend-CaptionBot): This is the branch with the backend that is currently in use for the image captioning feature. 
+- [experimental-backend](https://github.com/HarshCasper/HelpingHand/tree/experimental-backend): This is an experimental backend we were working on using our own model and training scripts. But the model was too heavy to be hosted on a free server, so we went with our caption bot backend as it is a very light weight and accurate service. 
+- [landing-page](https://github.com/HarshCasper/HelpingHand/tree/landing-page): This branch holds the landing website of the project. 
 
 ## LICENSE 📜
 
