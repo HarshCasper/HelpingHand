@@ -1,7 +1,7 @@
 # HelpingHand
 
 <p align="center">
-  <a href="https://github.com/HarshCasper/YouTube">
+  <a href="https://github.com/HarshCasper/HelpingHand">
     <img src="https://cdn.discordapp.com/attachments/757614604070289558/761243667000066138/Final_HH_logo.jpg" alt="Logo" >
   </a>
   
@@ -70,6 +70,10 @@ This would be an enriching experience for all of us that are part of this team.
 - [Backend-CaptionBot](https://github.com/HarshCasper/HelpingHand/tree/Backend-CaptionBot): This is the branch with the backend that is currently in use for the image captioning feature. 
 - [experimental-backend](https://github.com/HarshCasper/HelpingHand/tree/experimental-backend): This is an experimental backend we were working on using our own model and training scripts. But the model was too heavy to be hosted on a free server, so we went with our caption bot backend as it is a very light weight and accurate service. 
 - [landing-page](https://github.com/HarshCasper/HelpingHand/tree/landing-page): This branch holds the landing website of the project. 
+
+## Try it out
+
+Here is a link to the apk for trying it out: [https://drive.google.com/file/d/1VjqDbLCVj_YqMb_hoIbc8naaDzEEYeKj/view?usp=sharing](https://drive.google.com/file/d/1VjqDbLCVj_YqMb_hoIbc8naaDzEEYeKj/view?usp=sharing)
 
 ## LICENSE 📜
 

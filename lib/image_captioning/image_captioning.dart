@@ -17,7 +17,7 @@ class imgCap {
   static uploadImg(BuildContext context, File image) async {
     print("stage 1");
     final client =
-        imgur.Imgur(imgur.Authentication.fromToken('a05da4f1a5b17ae'));
+        imgur.Imgur(imgur.Authentication.fromToken('INSERT YOUR IMGUR TOKEN HERE'));
     print("stage 2");
 
     /// Upload an image from path
