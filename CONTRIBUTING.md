@@ -46,9 +46,15 @@ $ git add .
 - To commit give a descriptive message for the convenience of reveiwer by:
 ```
 # This message get associated with all files you have changed
-$ git commit -m 'message
+$ git commit -m 'message'
 ```
 - **NOTE**: A PR should have only one commit. Multiple commits should be squashed.
+
+### Commit style guidelines
+
+- Features: If you're working on implementing a feature, the commit should begin with `feat: 'Brief Description'`
+- Chores: If you're working on code refactoring, or similar chores, your commit should begin with `chore: 'Brief Description'`
+- Documentation: If you're working on documentation, your commit should begin with `docs: 'Brief Description'`
 
 ## Step 5 : Work Remotely
 - Now you are ready to your work to the remote repository.
