@@ -4,8 +4,7 @@
   <a href="https://github.com/HarshCasper/HelpingHand">
     <img src="https://cdn.discordapp.com/attachments/757614604070289558/761243667000066138/Final_HH_logo.jpg" alt="Logo" >
   </a>
-  
-  
+
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 [![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
@@ -61,19 +60,9 @@ This would be an enriching experience for all of us that are part of this team.
 ## For contributors
 
 - To get a deeper understanding and build insturctions for the project please check out our project's [Wiki Page](https://github.com/HarshCasper/HelpingHand/wiki).
-- Before contributing do go through the [Code of Conduct](https://github.com/HarshCasper/HelpingHand/blob/master/CODE_OF_CONDUCT.md) and the [Contributors Guidelines](https://github.com/HarshCasper/HelpingHand/blob/master/CONTRIBUTING.md). 
+- Before contributing do go through the [Code of Conduct](https://github.com/HarshCasper/HelpingHand/blob/master/CODE_OF_CONDUCT.md) and the [Contributors Guidelines](https://github.com/HarshCasper/HelpingHand/blob/master/CONTRIBUTING.md).
 - If you find any bug in the application, or a feature you think would be nice to have, please open an [issue](https://github.com/HarshCasper/HelpingHand/issues).
-
-## Branch Policy
-
-- [master](https://github.com/HarshCasper/HelpingHand): This is the default branch of the repository which contains the flutter appliation. 
-- [Backend-CaptionBot](https://github.com/HarshCasper/HelpingHand/tree/Backend-CaptionBot): This is the branch with the backend that is currently in use for the image captioning feature. 
-- [experimental-backend](https://github.com/HarshCasper/HelpingHand/tree/experimental-backend): This is an experimental backend we were working on using our own model and training scripts. But the model was too heavy to be hosted on a free server, so we went with our caption bot backend as it is a very light weight and accurate service. 
-- [landing-page](https://github.com/HarshCasper/HelpingHand/tree/landing-page): This branch holds the landing website of the project. 
-
-## Try it out
-
-Here is a link to the apk for trying it out: [https://drive.google.com/file/d/1VjqDbLCVj_YqMb_hoIbc8naaDzEEYeKj/view?usp=sharing](https://drive.google.com/file/d/1VjqDbLCVj_YqMb_hoIbc8naaDzEEYeKj/view?usp=sharing)
+- If you want to contribute code, please fork the project and submit a pull request.
 
 ## LICENSE 📜
 
