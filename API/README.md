@@ -11,7 +11,7 @@ The Backend API is designed and developed for the purpose of grabbing the URLs o
 
 ```sh
 git clone https://github.com/HarshCasper/HelpingHand.git
-git checkout Backend-CaptionBot
+cd API
 ```
 
 3.Make a Virtual Environment:
